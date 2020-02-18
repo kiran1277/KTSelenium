@@ -13,7 +13,7 @@ class Stepdefs : En, Utilities() {
 //                    driver!!.findElement(By.name("q")).sendKeys(arg0)
 //                    driver!!.findElement(By.name("btnK")).click()
             clickElement(googleHomePage?.searchButton!!)
-            wait(10)
+            waitForElementDisplay(googleHomePage?.resultLinks)
         }
         Then("^I verify results$") {
             assert(googleHomePage?.resultLinks!!.isDisplayed)

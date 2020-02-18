@@ -4,7 +4,10 @@ import io.cucumber.java8.Scenario
 import junit.framework.TestCase
 import org.openqa.selenium.*
 import org.openqa.selenium.interactions.Actions
+import org.openqa.selenium.support.ui.ExpectedConditions
 import org.openqa.selenium.support.ui.Select
+import org.openqa.selenium.support.ui.WebDriverWait
+
 
 open class Utilities : DriverFactory() {
     fun enterTextInEdit(element: WebElement, text: String?) {
@@ -115,6 +118,13 @@ open class Utilities : DriverFactory() {
         } catch (e: NoSuchElementException) {
             false
         }
+    }
+
+    fun waitForElementDisplay(element: WebElement?){
+        WebDriverWait(
+            driver,
+            30
+        ).until(ExpectedConditions.visibilityOf(element))
     }
 
 }
