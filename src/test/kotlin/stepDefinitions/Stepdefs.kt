@@ -10,8 +10,6 @@ class Stepdefs : En, Utilities() {
         }
         When("^I search for \"([^\"]*)\"$") { arg0: String? ->
             enterTextInEdit(googleHomePage?.searchEdit!!, arg0)
-//                    driver!!.findElement(By.name("q")).sendKeys(arg0)
-//                    driver!!.findElement(By.name("btnK")).click()
             clickElement(googleHomePage?.searchButton!!)
             waitForElementDisplay(googleHomePage?.resultLinks)
         }
